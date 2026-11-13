@@ -1,0 +1,60 @@
+==================================================
+MODULE 1 - TOPIC 3: DELPHIX REPLICATION
+==================================================
+
+--------------------------------------------------
+1. WHAT IS REPLICATION?
+--------------------------------------------------
+* Replication lets you move Delphix objects such as dSources and Virtual
+  Databases (VDBs) between Delphix Engines.
+* It allows you to not only migrate data but also take the important step
+  of backing up your data.
+
+IMPORTANT NOTE:
+Replication supports Delphix Engine recovery and DR (disaster recovery)
+scenarios - NOT production source recovery.
+
+--------------------------------------------------
+2. DATA OBJECTS THAT CAN BE REPLICATED
+--------------------------------------------------
+As virtual appliances, it is possible to backup, restore, replicate, and
+migrate data objects between Delphix Engines using features of the
+hypervisor and the underlying storage infrastructure. Data objects:
+
+* Groups
+* dSources
+* VDBs
+
+--------------------------------------------------
+3. HOW DOES A HYPERVISOR HELP IN DATA REPLICATION?
+--------------------------------------------------
+A hypervisor assists in data replication by managing and copying data at
+the Virtual Machine (VM) level rather than the physical hardware level.
+
+--------------------------------------------------
+4. THE DELPHIX ECOSYSTEM WITH REPLICATION
+--------------------------------------------------
+* Delphix Replication provides ASYNCHRONOUS updates to a remote site.
+* The remote site can be:
+    - another Delphix Engine in the local datacenter,
+    - a remote datacenter, or
+    - the Cloud.
+* This provides both backup AND disaster recovery in a single technology.
+
+--------------------------------------------------
+5. IS SELECTIVE DATA DISTRIBUTION THE ONLY WAY TO REPLICATE DATA?
+--------------------------------------------------
+No. Selective Data Distribution (SDD) is a specific strategy within a much
+broader replication architecture, designed to protect sensitive data and
+save bandwidth.
+
+* Delphix replication is built around the concept of REPLICATION PROFILES.
+* You have full control over what data moves, how it moves, and where it
+  goes using several different methods.
+
+--------------------------------------------------
+6. CONSIDERATIONS FOR REPLICATION TASKS
+--------------------------------------------------
+To make sure replication is successful, keep these in mind:
+* Failover and conflict resolution
+* Enabling databases and environments

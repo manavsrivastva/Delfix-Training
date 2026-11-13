@@ -1,0 +1,114 @@
+==================================================
+MODULE 1 - TOPIC 1: DELPHIX PLATFORM OVERVIEW
+==================================================
+
+--------------------------------------------------
+1. WHAT IS THE SERVICE OF PERFORCE DELPHIX?
+--------------------------------------------------
+Perforce Delphix (acquired by Perforce Software in 2024) is an intelligent
+DevOps Data Platform that automates how enterprises deliver, secure, and
+manage test data for software development, testing, and AI workflows.
+
+--------------------------------------------------
+2. PRODUCTS IN THE SUITE
+--------------------------------------------------
+A suite of products that allows you to ingest, secure, and manage copies
+of your data:
+
+* Delphix Continuous Data Engine
+  - Connects with source data and creates compressed virtual copies of
+    your database.
+  - These copies can be used just like a physical copy of a database and
+    can easily be replicated to other environments.
+
+* Delphix Continuous Compliance Engine
+  - Secures sensitive data in non-production environments.
+  - Replaces sensitive data with fictitious but realistic data.
+
+* Data Control Tower (DCT)
+  - A user interface and API gateway that provides a central control point
+    for automating, managing, and monitoring multiple Delphix Continuous
+    Data and Compliance Engines simultaneously.
+
+--------------------------------------------------
+3. HOSTS / CLUSTERS (ENVIRONMENTS)
+--------------------------------------------------
+Hosts or clusters configured within Delphix as Sources or Targets:
+
+* Source Environment - contains one or more source databases.
+* Target Environment - used to provision Virtual Databases (VDBs).
+
+(Databases from the source environment get into the Delphix compliance
+engine, which regulates the data and stores it in a separate category in
+the target environment.)
+
+--------------------------------------------------
+4. DATABASE TERMS
+--------------------------------------------------
+A database = the data files, control files, transaction logs, and archive
+logs that are accessible by a database instance.
+
+* Source   - a database that is synced with a Delphix dSource.
+* dSource  - a copy of the source database stored in the Delphix
+             Continuous Data Engine, along with all incremental updates,
+             used to make virtual copies of your data.
+* Virtual Database (VDB) - fully functional copy of a data source. To end
+             users, VDBs act and perform just like a standard database.
+
+(Flow: source data is sent into the Delphix DevOps Data Platform, made
+into a virtual DB, then provided to users - Developer, Tester, Analyst -
+who can also send/receive changes in the data.)
+
+--------------------------------------------------
+5. BASIC FUNCTIONS OF THE DELPHIX DEVOPS DATA PLATFORM
+--------------------------------------------------
+1) Making a copy of source data
+   - The Continuous Data Engine connects to your source database(s) and
+     takes in a full copy of the data.
+   - The data is compressed (usually to about 1/3 the size) and housed in
+     the Continuous Data Engine.
+
+2) Masking data with the Continuous Compliance Engine
+   - Masks all or some of your data, depending on your needs.
+   - Data is masked consistently across all data tables.
+
+3) Creating copies of your Virtual Database (VDB)
+   - Once you have a secure copy of your data, you can make as many VDB
+     copies as you need.
+   - Delphix Replication copies objects from one engine (source engine)
+     to another (target engine), or uses Selective Data Distribution to
+     distribute masked data between engines without bringing over the
+     unmasked parent source.
+
+4) dSources and VDBs
+   - The Continuous Data Engine stays connected to your Source
+     Environment.
+   - Each time source data changes, only the NEW data blocks are ingested
+     (not a full 1:1 copy).
+   - The collection of these data blocks is the dSource.
+   - The dSource is then used to create VDBs.
+
+5) Using VDBs for development and testing
+   - VDBs are assigned to testers and developers through Delphix
+     Self-Service.
+   - Data can be tested without impacting production.
+
+6) Managing multiple Delphix Engines
+   - DCT (Data Control Tower) enables API-driven DevOps workflows for
+     automation and management across multiple engines at once.
+
+--------------------------------------------------
+6. THE PIPELINE (STAGED PROCESS)
+--------------------------------------------------
+[Production Source] --(Continuous Data Sync)--> [Delphix Continuous Data]
+   --(Triggers)--> [Delphix Continuous Compliance]
+   --> [Safe Masked Virtual DB (VDB)]
+
+--------------------------------------------------
+NOTES
+--------------------------------------------------
+* Data storage is like snapshots in Git, not a 1:1 clone.
+* The Continuous Compliance Engine lets you customize which data to mask.
+  Example: if the name "John Doe" is changed to "Joe Smith" in one table,
+  it is masked the same way across all other tables.
+* You only have to mask ONE copy of your data.

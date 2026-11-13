@@ -1,0 +1,27 @@
+==================================================
+MODULE 3 - TOPIC 6: MIGRATING A VDB AND V2P
+==================================================
+
+--------------------------------------------------
+1. MIGRATING A VDB
+--------------------------------------------------
+Migration is used when upgrading the host on which the VDB resides, or as
+part of a general data center migration.
+
+Process:
+1) Disable the database.
+2) Use the Migrate VDB feature to select a new target environment.
+
+--------------------------------------------------
+2. V2P (VIRTUAL TO PHYSICAL)
+--------------------------------------------------
+This process, referred to as V2P, creates a set of directories in the
+target environment and populates them with the database data, log files,
+and scripts that are used to recover the physical database.
+
+--------------------------------------------------
+3. V2P CHARACTERISTICS
+--------------------------------------------------
+* Compress
+* Encrypt
+* Pause and Resume

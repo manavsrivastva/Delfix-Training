@@ -1,0 +1,46 @@
+==================================================
+MODULE 3 - TOPIC 5: REFRESHING A VDB AFTER THE SOURCE IS UPGRADED
+==================================================
+
+--------------------------------------------------
+1. ANALOGY
+--------------------------------------------------
+Think of a VDB as a toy copy of a big Lego city (the source database).
+
+--------------------------------------------------
+2. WORKFLOW
+--------------------------------------------------
+1) Upgrade the real city first
+   - Upgrade the source database using its normal upgrade steps.
+
+2) Put the new Lego pieces on the toy table
+   - Install the new database software (new binaries) on the target server
+     where the VDB lives, so it can understand the upgraded source.
+
+3) Let Delphix take a fresh look around
+   - In Delphix, refresh the target environment so it "sees" the new
+     database installation and services.
+
+4) Tell the VDB to use the new tools
+   - Stop/disable the VDB.
+   - Use the Upgrade action so the VDB points to the new database version
+     (same as the upgraded source).
+
+5) Give the toy city a fresh copy of the upgraded world
+   - In Delphix, choose Refresh VDB.
+   - Pick a new snapshot from the source taken AFTER the source was
+     upgraded.
+   - Delphix "rebuilds" the VDB from this upgraded snapshot.
+
+End result:
+   First the real source is upgraded, then the VDB is refreshed so it
+   matches the newly upgraded source.
+
+--------------------------------------------------
+3. REFRESH THE VDB (STEPS IN THE UI)
+--------------------------------------------------
+1) Navigate to the Datasets view, select the VDB, then click the
+   Timeflow tab.
+2) Click the Refresh button.
+3) Select a new snapshot from the dSource taken after the dSource was
+   upgraded. Choosing "Faster" uses the most recent dSource snapshot.

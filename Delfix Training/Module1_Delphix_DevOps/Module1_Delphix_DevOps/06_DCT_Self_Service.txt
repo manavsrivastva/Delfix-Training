@@ -1,0 +1,30 @@
+==================================================
+MODULE 1 - TOPIC 6: DCT SELF-SERVICE FEATURES
+==================================================
+
+--------------------------------------------------
+1. GOAL OF DCT SELF-SERVICE
+--------------------------------------------------
+The goal of Delphix Data Control Tower (DCT) Self-Service is to give
+development and testing teams the ability to manage database
+administration functions in non-production environments, such as:
+* Provisioning
+* Snapshots
+* Rewind
+
+--------------------------------------------------
+2. THE DCT SELF-SERVICE USER INTERFACE (UI)
+--------------------------------------------------
+1) Connection Library
+   - Lists all external data connections discovered through
+     infrastructure connections.
+
+2) VDBs
+   - Displays all virtual databases in the environment, along with their
+     status, type, platform, engine, compliance state, and last refresh
+     time.
+
+3) Timeline History
+   - Helps administrators track VDB lifecycle events such as
+     provisioning, refreshes, and rollbacks, along with associated
+     timestamps and source relationships.

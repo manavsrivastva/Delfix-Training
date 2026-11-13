@@ -1,0 +1,65 @@
+==================================================
+MODULE 2 - TOPIC 6: TIMEFLOW, SNAPSHOTS, SNAPSYNC AND LOGSYNC
+==================================================
+
+--------------------------------------------------
+1. TIMEFLOW
+--------------------------------------------------
+A Timeflow represents the complete historical record of a dataset,
+containing both snapshots and the intervening log data. It allows the
+Continuous Data Engine to reconstruct the dataset from any specific point
+in time, enabling precise provisioning, refresh, and rewind operations.
+
+* Both dSources and VDBs have Timeflows.
+* Timeflow data is the basis for all Virtual Database storage in Delphix.
+
+Timeflow uses two mechanisms for point-in-time provisioning:
+  1) Periodic snapshots of the dSource or VDB
+  2) Transaction log collection for all time between backups
+
+Snapshots are created via a schedule policy or generated on demand. They
+let you choose a point in time from which to provision, refresh, or
+roll back.
+
+--------------------------------------------------
+2. DATA BLOCKS
+--------------------------------------------------
+In Perforce Delphix (part of the DevOps Data Platform), data blocks (or
+shared data blocks) are the underlying storage units of production data
+that Delphix virtualizes rather than duplicates.
+
+--------------------------------------------------
+3. TYPES OF SNAPSHOTS
+--------------------------------------------------
+* Initial dSource Snapshot - creates a snapshot timestamp in the dSource
+  Timeflow.
+* Initial VDB Snapshot - creates a snapshot timestamp in the VDB's
+  Timeflow.
+* Subsequent Snapshots - capture the state of a dataset at a specific
+  moment in time.
+
+--------------------------------------------------
+4. SNAPSYNC, LOGSYNC AND VDB SNAPSHOT
+--------------------------------------------------
+For dSources:
+  * Snapshots are taken via the Delphix SnapSync service.
+  * Database logs are collected via the Delphix LogSync service.
+
+For VDBs:
+  * Snapshots are taken via the Delphix VDB Snapshot service.
+  * Database logs are collected automatically if database logging is
+    enabled on the VDB.
+
+SnapSync:
+  The standard process for importing data from a source into the
+  Continuous Data Engine. An initial SnapSync is performed to create a
+  dSource on the engine.
+
+LogSync:
+  Enables ingestion and retention of more granular (log-based) source
+  change data. This allows VDB point-in-time provision, refresh, or
+  rollback.
+
+VDB Snapshot:
+  Represents the state of a dataset at a specific moment in time. Created
+  via scheduled policies or generated on demand.

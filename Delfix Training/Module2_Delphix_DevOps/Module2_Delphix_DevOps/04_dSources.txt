@@ -1,0 +1,44 @@
+==================================================
+MODULE 2 - TOPIC 4: dSOURCES
+==================================================
+
+--------------------------------------------------
+1. WHAT IS A dSOURCE?
+--------------------------------------------------
+A dSource is a copy of the source database that is compressed and stored
+in the Delphix Engine, along with all incremental updates. It is used to
+make virtual copies of your data.
+
+--------------------------------------------------
+2. LINKING dSOURCES
+--------------------------------------------------
+A Linked dSource within the Continuous Data Engine ingests data from the
+Source Environment(s) and creates a dSource object on the engine.
+
+--------------------------------------------------
+3. ENABLING AND DISABLING dSOURCES
+--------------------------------------------------
+* Some operations, such as dSource upgrade, are NOT available unless the
+  dSource is disabled.
+* Disabling a dSource turns off communication between the Delphix Engine
+  and the source database, but it does NOT remove the configuration.
+* When a disabled dSource is later enabled, it resumes communication and
+  incremental data updates from the source database according to the
+  original policies and data management configurations.
+
+--------------------------------------------------
+4. STEPS TO DISABLE A dSOURCE (DASHBOARD)
+--------------------------------------------------
+Step 1 - Find the Datasets menu.
+Step 2 - Choose a dSource to disable.
+Step 3 - Open the dSource options.
+Step 4 - Confirm the Disable action.
+Step 5 - Review the status of the dSource.
+
+--------------------------------------------------
+5. DISABLING IS A PREREQUISITE FOR
+--------------------------------------------------
+1) Database migration
+2) Upgrading the dSource metadata after the upgrade of the associated
+   data source
+3) Restoring the source database from a backup

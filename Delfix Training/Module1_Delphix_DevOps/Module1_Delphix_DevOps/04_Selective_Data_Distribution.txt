@@ -1,0 +1,37 @@
+==================================================
+MODULE 1 - TOPIC 4: SELECTIVE DATA DISTRIBUTION (SDD)
+==================================================
+
+--------------------------------------------------
+1. WHAT IS SDD?
+--------------------------------------------------
+Selective Data Distribution permits the distribution of MASKED data
+between Delphix Engines.
+
+* Configured on the source Delphix Engine or in the Data Control Tower.
+* First copies a subset of masked VDBs to a target Delphix Engine.
+* Then sends incremental updates, either manually or on a schedule.
+
+--------------------------------------------------
+2. HOW SDD PROTECTS SENSITIVE DATA
+--------------------------------------------------
+* DxFS (Delphix File System) uses SDD to redact sensitive data from the
+  replication stream.
+* Only masked or permitted data is replicated to the Non-Production
+  datacenter.
+* Sensitive data from the dSource NEVER leaves the Production engine.
+* This gives protection at both the VDB layer and the replication layer.
+
+--------------------------------------------------
+3. IMPORTANT NOTE
+--------------------------------------------------
+Only MASKED VDBs can be added to a Selective Data Distribution spec and
+replicated to another engine outside the production zone (dev/test
+on-premise or in the cloud).
+
+--------------------------------------------------
+4. SDD vs. REPLICATION
+--------------------------------------------------
+SDD is not the only way to replicate data in Delphix. It is one strategy
+within the broader replication architecture (see Topic 3 - Delphix
+Replication).

@@ -1,0 +1,29 @@
+==================================================
+MODULE 2 - TOPIC 1: CONTINUOUS DATA ENGINE AND USER INTERFACES
+==================================================
+
+--------------------------------------------------
+1. CONTINUOUS DATA ENGINE
+--------------------------------------------------
+The Continuous Data Engine is a data management engine that provides the
+ability to ingest, replicate, and share datasets.
+
+* It connects with your source database(s) to take in a full, readable,
+  writable copy of your data.
+
+--------------------------------------------------
+2. USER INTERFACE OPTIONS FOR WORKING WITH DELPHIX
+--------------------------------------------------
+1) Graphical User Interface (GUI)
+2) REST API
+3) CLI (via Secure Shell - SSH)
+4) Data Control Tower (DCT)
+5) DCT Toolkit
+
+--------------------------------------------------
+3. ADMINISTRATION OF THE ENGINE
+--------------------------------------------------
+* Administration of the Continuous Data Engine is done through SUPPORTED
+  product interfaces only: the browser-based UI, REST API, or CLI.
+* Direct system-level modifications (outside of the supported interfaces)
+  are NOT supported.

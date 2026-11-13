@@ -1,0 +1,50 @@
+==================================================
+MODULE 1 - TOPIC 2: INGESTING DATA, dSOURCES AND VDBs
+==================================================
+
+--------------------------------------------------
+1. INGESTING DATA INTO THE DEVOPS DATA PLATFORM
+--------------------------------------------------
+Focus: how the Delphix Continuous Data Engine ingests data from the data
+sources within your Source Environment(s) and creates dSources.
+
+* Once an environment has been added, the Continuous Data Engine
+  automatically discovers any data sources on the host.
+* The engine stays connected to your Source Environment(s).
+* Each time data is ingested, its data blocks are compressed and stored in
+  the Continuous Data Engine.
+* When new source data is discovered, the engine does NOT ingest a 1:1
+  copy - it only ingests and compresses the blocks of new data.
+* A collection of data blocks is what is referred to as a dSource.
+
+--------------------------------------------------
+2. dSOURCE
+--------------------------------------------------
+A dSource is a compressed copy of the source database stored in the
+Continuous Data Engine, along with all incremental updates, so that it is
+kept up to date over time.
+
+Linked dSource:
+* A Linked dSource ingests data from the Source Environment(s) and creates
+  a dSource object on the Continuous Data Engine.
+* As a virtualized representation of your source data, it cannot be
+  managed, manipulated, or examined by database tools.
+
+--------------------------------------------------
+3. IMPORTANT NOTE - USING dSOURCE SNAPSHOTS
+--------------------------------------------------
+* To use dSource snapshots, you must create a Virtual Database (VDB) - an
+  independent, writable copy of a dSource snapshot.
+* Each dSource and VDB has its own record represented in the Timeline
+  History, which is made up of snapshots taken at different points in time.
+
+--------------------------------------------------
+4. VDB PROVISIONING
+--------------------------------------------------
+* The Continuous Data Engine User Interface lets you manage datasets and
+  the environments for those datasets (Manage Virtual Databases).
+* You must use a dSource to create a VDB - a process Delphix calls
+  "VDB provisioning".
+* VDBs are fully functional copies of data sources that can be created and
+  managed at a fraction of the storage and time normally required.
+* To end users, VDBs act and perform just like a standard database.

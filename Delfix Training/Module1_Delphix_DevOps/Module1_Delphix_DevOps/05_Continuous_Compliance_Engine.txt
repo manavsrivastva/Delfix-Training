@@ -1,0 +1,83 @@
+==================================================
+MODULE 1 - TOPIC 5: DELPHIX CONTINUOUS COMPLIANCE ENGINE
+==================================================
+
+--------------------------------------------------
+1. OVERVIEW
+--------------------------------------------------
+* Once data has been ingested into the Continuous Data Engine and a
+  dSource has been linked, the Continuous Compliance Engine can be used to
+  mask and secure the sensitive data.
+* IMPORTANT: masking is NOT dependent on virtualization - there is zero
+  mandatory dependency. It can be applied independently of VDBs.
+
+The engine uses an automated approach to protect non-production
+environments, replacing confidential information (social security numbers,
+patient records, credit card information) with fictitious yet realistic
+data.
+
+Unlike traditional solutions that take months to implement, Continuous
+Compliance processes can be implemented in days.
+
+--------------------------------------------------
+2. WHY "DAYS" IF IT IS AUTOMATED?
+--------------------------------------------------
+The automation only knows how to mask what you explicitly tell it to mask.
+
+Analogy: an industrial automated sorting factory. The robots can sort
+millions of items per minute (automated execution), but engineers still
+need days to program the safety rules, calibrate the sensors, and test the
+assembly line before turning it on.
+
+--------------------------------------------------
+3. KEY TERMS
+--------------------------------------------------
+* Application   - A tag assigned to one or more environments. An
+                  Application must be created before an Environment can be
+                  created.
+* Environment   - Used to group certain sets of objects.
+* Connectors    - The way users define the data sources the engine should
+                  connect to.
+* Classifier    - A detection rule the engine uses to scan data and decide
+                  whether a column or field contains a particular type of
+                  sensitive information.
+* Profiling     - Profiling jobs use Profiler Sets to determine which set
+                  of Classifiers to use when identifying sensitive data in
+                  an Inventory.
+* Rule Set      - Points to a collection of tables or flat files the engine
+                  uses for profiling and masking data.
+* Rule Set Details - A rule set now encompasses both the inventory and the
+                  configuration details for data masking.
+* Masking Algorithm - Creates a structurally similar but fictitious version
+                  of the data, protecting sensitive information.
+
+--------------------------------------------------
+4. TWO MAIN STEPS: IDENTIFY AND MASK
+--------------------------------------------------
+The process of identifying and masking sensitive data can be generalized
+into two main steps:
+   1) Identify Sensitive Data - Profiling
+   2) Rule Set
+
+--------------------------------------------------
+5. HOW DELPHIX IDENTIFIES SENSITIVE DATA
+--------------------------------------------------
+* Column-Level Profiling
+* Data-Level Profiling
+Both use regex (regular expressions) for identification.
+
+--------------------------------------------------
+6. HOW DELPHIX SECURES SENSITIVE DATA
+--------------------------------------------------
+* Masking
+    - In-place masking: the target DB is masked and saved in the target DB.
+    - On-the-fly masking: the source DB is masked and saved in the target
+      DB.
+* Tokenization
+
+--------------------------------------------------
+7. COMMON MASKING JOB TASKS
+--------------------------------------------------
+* Create or import an Environment
+* Define a Connection
+* Define a Rule Set

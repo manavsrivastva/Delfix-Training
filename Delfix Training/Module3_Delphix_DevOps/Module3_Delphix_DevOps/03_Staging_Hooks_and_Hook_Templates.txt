@@ -1,0 +1,48 @@
+==================================================
+MODULE 3 - TOPIC 3: STAGING SERVER HOOKS AND HOOK TEMPLATES
+==================================================
+
+--------------------------------------------------
+1. STAGING SERVER HOOKS
+--------------------------------------------------
+Staging Server hooks currently apply to SAP ASE and staged plugin
+environments (Db2, HANA, and PostgreSQL), and execute on the configured
+staging server.
+
+* Pre Validated Sync  - Operations performed on a staging server BEFORE
+                        validated sync.
+* Post Validated Sync - Operations performed on a staging server AFTER
+                        validated sync.
+
+--------------------------------------------------
+2. EDITING HOOK OPERATIONS ON A DATASET
+--------------------------------------------------
+Navigate to the Datasets page, select the dataset from the left-hand menu,
+click the Configuration tab, then click the Hooks tab.
+
+--------------------------------------------------
+3. HOOK TEMPLATES
+--------------------------------------------------
+To easily manage hooks across multiple datasets, you can create Hook
+Templates to apply the same hook to many objects.
+
+--------------------------------------------------
+4. EXPORTING A HOOK TEMPLATE
+--------------------------------------------------
+1) In the Datasets panel, select a dataset.
+2) Click the Configuration tab.
+3) Within the Configuration tab, click the Hooks tab.
+4) Select the hook to edit.
+5) Click the Plus icon to add a new operation.
+6) Select the type of operation.
+7) Click the text area and edit the contents of the operation.
+8) Click Export.
+9) Enter a Name for the template.
+10) Enter a Description detailing what the operation does or how to use it.
+11) Click Export.
+
+--------------------------------------------------
+5. TUTORIAL
+--------------------------------------------------
+Hooks and hook templates tutorial:
+https://help.delphix.com/cd/current/content/cli_cookbook_hooks_and_hook_templates.htm

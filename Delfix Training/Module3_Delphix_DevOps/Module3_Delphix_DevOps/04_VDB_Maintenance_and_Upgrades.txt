@@ -1,0 +1,52 @@
+==================================================
+MODULE 3 - TOPIC 4: VDB MAINTENANCE AND INDEPENDENT UPGRADES
+==================================================
+
+--------------------------------------------------
+1. OVERVIEW
+--------------------------------------------------
+VDB maintenance involves using documented database upgrade procedures. You
+can disable your VDB and then perform a standard database upgrade against
+it.
+
+--------------------------------------------------
+2. TWO USE CASES FOR UPGRADING A VDB
+--------------------------------------------------
+1) Upgrading a VDB independently from the source DB
+2) Refreshing the VDB after the source DB is upgraded
+   (see Topic 5)
+
+--------------------------------------------------
+3. INDEPENDENTLY UPGRADING A VDB
+--------------------------------------------------
+"Independently upgrading a VDB" = upgrading the VDB itself WITHOUT
+upgrading the source.
+
+Workflow:
+1) Put the new "brain" on the machine
+   - Install the new database software (new version/binaries) on the
+     target server where the VDB lives.
+
+2) Do the normal upgrade steps
+   - Use the database's usual upgrade/patch steps (Oracle, SQL Server,
+     etc.) on that server, just as you would for a physical database.
+
+3) Let Delphix re-look at the machine
+   - In Delphix, refresh the target environment so it can "see" the new
+     database installation and services.
+
+4) Tell the VDB to use the new version
+   - Disable/stop the VDB.
+   - Use the Upgrade action to point the VDB's installation/repository to
+     the new database version.
+
+Result: the VDB now runs on the new database version, independently of its
+source.
+
+--------------------------------------------------
+4. UPDATING THE ORACLE_INSTALLATION
+--------------------------------------------------
+1) On the VDB Configuration tab, click the Stop icon to stop the VDB.
+2) From the Actions menu (...), select Upgrade to switch the
+   ORACLE_INSTALLATION to the new upgraded version (the same as the
+   dSource).

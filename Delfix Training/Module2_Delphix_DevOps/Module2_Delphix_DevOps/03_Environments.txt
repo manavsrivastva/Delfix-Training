@@ -1,0 +1,37 @@
+==================================================
+MODULE 2 - TOPIC 3: ENVIRONMENTS
+==================================================
+
+--------------------------------------------------
+1. WHAT IS AN ENVIRONMENT?
+--------------------------------------------------
+Environments are individual hosts or supported clusters that are
+configured to be used with Delphix. Hosts are configured in Delphix by
+adding them using their hostnames or IP addresses.
+
+--------------------------------------------------
+2. TYPES OF ENVIRONMENTS
+--------------------------------------------------
+1) Source Environment
+   - The host or cluster on which the source database instances run.
+   - Contains one or more source databases that are synced with Delphix.
+
+2) Staging Environment
+   - Hosts a database instance using the SAME VERSION as the source
+     database.
+   - Acts as the intermediary layer where Delphix ingests, applies, and
+     validates data from the source (such as backups or logs) before
+     capturing it into the dSource snapshot.
+
+3) VDB Target Environment
+   - A host or cluster used to provision VDBs.
+   - Typically the server where development, testing, or similar
+     non-production databases exist.
+
+--------------------------------------------------
+3. TABS IN "ADD ENVIRONMENT"
+--------------------------------------------------
+1) Host and Server
+2) Environment Settings
+3) Summary
+4) Actions Tab

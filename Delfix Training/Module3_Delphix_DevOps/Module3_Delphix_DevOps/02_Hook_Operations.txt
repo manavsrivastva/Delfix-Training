@@ -1,0 +1,68 @@
+==================================================
+MODULE 3 - TOPIC 2: HOOK OPERATIONS (dSOURCE AND VDB HOOKS)
+==================================================
+
+--------------------------------------------------
+1. WHAT ARE HOOK OPERATIONS?
+--------------------------------------------------
+Hook operations allow you to execute custom operations at select points
+while linking sources and managing virtual datasets.
+
+Example: you may want to stop your monitoring systems from triggering
+during VDB startup and shutdown. You would use pre- and post-hooks to run
+the required scripts for VDB start/stop operations.
+
+--------------------------------------------------
+2. dSOURCE HOOKS
+--------------------------------------------------
+* Pre Sync  - Operations executed BEFORE a SnapSync of a dSource.
+* Post Sync - Operations executed AFTER a SnapSync of a dSource.
+
+--------------------------------------------------
+3. VDB HOOKS
+--------------------------------------------------
+Configure Clone
+  - Performed after initial provisioning and after a refresh.
+
+Pre Refresh
+  - Performed before a refresh.
+  - Can export or back up data from the virtual dataset so it can be
+    restored after the refresh completes.
+
+Post Refresh
+  - Performed after a refresh (after the virtual dataset has started and
+    the Configure Clone hook has run).
+  - Will NOT run if the refresh or the Pre Refresh hook operations fail.
+
+Pre Rollback
+  - Performed before a rollback (also known as rewind).
+  - Can export or back up data from the virtual dataset to be restored
+    after the rewind (rollback) completes.
+
+Post Rollback
+  - Performed after a rollback (rewind).
+  - Will NOT run if the rewind or the Pre Rewind hook operations fail.
+
+Pre Snapshot
+  - Performed before a snapshot.
+
+Post Snapshot
+  - Performed after a snapshot.
+  - Runs REGARDLESS of the success of the snapshot or the Pre Snapshot
+    hook operations.
+
+Pre Start
+  - Performed before the startup of a VDB or vFile.
+
+Post Start
+  - Performed after the startup of a VDB or vFile.
+  - Allows you to clean up temporary files or restart processes that may
+    have been stopped by the Pre Start hook or log notification.
+
+Pre Stop
+  - Performed before the shutdown of a VDB or vFile.
+
+Post Stop
+  - Performed after the shutdown of a VDB or vFile.
+  - Can be used to log notifications, clean up temporary files, or manage
+    related processes.

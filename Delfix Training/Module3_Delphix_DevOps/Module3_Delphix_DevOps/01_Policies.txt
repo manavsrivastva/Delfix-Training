@@ -1,0 +1,69 @@
+==================================================
+MODULE 3 - TOPIC 1: POLICIES
+==================================================
+
+--------------------------------------------------
+1. WHY POLICIES?
+--------------------------------------------------
+Creating policies is a great way to automate the management of datasets in
+the Delphix Engine. Whether for syncing data, taking snapshots, or
+refreshing virtual databases, policies ensure that data is ready when
+needed.
+
+The Delphix policies area lets Delphix Administrators control and
+guarantee behaviors within the Delphix Engines.
+
+--------------------------------------------------
+2. THE 5 CATEGORIES OF POLICIES
+--------------------------------------------------
+The Continuous Data Engine uses 5 categories of policies in conjunction
+with database objects (they control when and how snapshots and SnapSync
+operations run):
+
+1) SnapSync
+   - How often snapshots of a source database are taken for a dSource.
+
+2) VDB Snapshot
+   - How often snapshots are taken for a VDB.
+
+3) Retention
+   - How long snapshots and log files are retained for dSources and VDBs.
+
+4) VDB Refresh
+   - Automatic scheduled refreshes of VDBs.
+   - The default setting for this policy is "None".
+
+5) Replica Retention
+   - How long snapshots are retained on replicated namespaces for dSources
+     and VDBs after they have been deleted on the replication source.
+
+--------------------------------------------------
+3. DELPHIX POLICY TYPES
+--------------------------------------------------
+* Default
+  - Exist at the domain level and are applied across all objects in a
+    category.
+  - Managed by users with Delphix Admin credentials.
+
+* Custom
+  - Can only be applied to a SPECIFIC database object.
+  - Cannot be saved for use with other objects.
+  - Managed by users with Delphix Admin credentials, group owners, and
+    object owners.
+
+--------------------------------------------------
+4. POLICY DETAILS
+--------------------------------------------------
+SnapSync Policies:
+  * Determine how often snapshots of the source database are taken.
+  * Can only be applied to dSources.
+
+VDB Refresh Policies:
+  * Can only be applied to VDBs.
+  * Only used when the user needs to re-provision VDBs from their source
+    at regular intervals.
+
+Replica Retention Policies:
+  * Define how long snapshots are retained on replicated namespaces for
+    dSources and VDBs, after they have been deleted on the replication
+    source.
